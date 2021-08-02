@@ -85,3 +85,23 @@ Ingresá el nombre de la segunda canción que hayas obtenido. */
 SELECT id, nombre
 FROM canciones
 WHERE id BETWEEN 10 AND 20;
+
+
+/* El encargado del equipo de UX de Musimundos solicita hacer un pequeño slide con solo tres canciones de nuestra colección. Además, pide que sean las tres con mayor duración. ¡Vamos con eso!
+Insertá el ID del álbum de las tres canciones que obtuviste, en orden, sin espacios y separados por coma. */
+-- 227,229,253
+SELECT nombre, id_album, milisegundos
+FROM canciones
+ORDER BY milisegundos DESC
+LIMIT 3;
+
+
+/* Tenemos un nuevo comunicado del departamento de UX.
+En esta ocasión necesitan hacer una paginación de canciones. La primera página ya está resuelta, pero para la segunda debes saltear cinco canciones y traer las próximas cinco. Estas deben estar ordenadas alfabéticamente por nombre.
+Insertá el compositor de la tercera canción que obtuviste. */
+-- Santana
+SELECT *
+FROM canciones
+ORDER BY nombre ASC
+LIMIT 5
+OFFSET 5;
