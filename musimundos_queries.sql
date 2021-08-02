@@ -106,7 +106,18 @@ ORDER BY nombre ASC
 LIMIT 5
 OFFSET 5;
 
+
 /* Decidimos que "nombre" era un poco ambigüo para una columna de tipos de medios. Por eso, Musimundos te pide una lista de los nombres de tipos de medio en una columna que se llame "nombres_de_medios".
 Insertá el primer nombre de medio que obtuviste. */
 SELECT nombre AS nombres_de_medios
 FROM tipos_de_medio;
+
+
+/* Desde el departamento de desarrollo de Musimundos están preparando la parte de la aplicación en la cual accedemos a una canción en particular. Nos comentan que debajo de la imagen de la canción deberá aparecer un texto específico, y necesitan nuestra ayuda. El texto tiene que ser:
+"La canción " (nombre del tema) " fue compuesta por " (compositor del tema).
+Hacé una consulta a nuestra base de datos que nos traiga el nombre y el compositor de cada tema, sin repeticiones y agregando el texto que el equipo de desarrollo nos mencionaba.
+¡Ojo! Tené en cuenta los espacios dentro de los textos que nos pidieron añadir.
+Ingresá el primer resultado que obtuviste, sin comillas. */
+-- La canción For Those About To Rock (We Salute You) fue compuesta por Angus Young, Malcolm Young, Brian Johnson
+SELECT CONCAT('La canción ', nombre, 'fue compuesta por ', compositor,'.')
+FROM canciones;
