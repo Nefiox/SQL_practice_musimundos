@@ -150,3 +150,11 @@ FROM canciones
 INNER JOIN tipos_de_medio
 ON canciones.id_tipo_de_medio = tipos_de_medio.id
 WHERE tipos_de_medio.nombre = 'MPEG audio file';
+
+
+/* 
+Desde el sector de recursos humanos de Musimundos nos están solicitando una lista de todos los cargos que tienen los empleados. Realizá una consulta a nuestra base de datos que nos brinde el título de los cargos que tengan todos los empleados sin repetirse medio.
+Ingresá el título que figura en la posición 4. */
+-- IT Manager
+SELECT DISTINCT titulo
+FROM empleados;
