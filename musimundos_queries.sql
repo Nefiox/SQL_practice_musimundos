@@ -167,3 +167,28 @@ FROM canciones
 INNER JOIN generos
 ON canciones.id_genero = generos.id
 GROUP BY id_genero;
+
+
+/* El área de estrategia de Musimundos está analizando cómo implementar una acción de marketing en la cual tiene que destinar un presupuesto acorde a la cantidad de clientes que tenga cada país. Por esto nos pide que los ayudemos a identificar la cantidad de clientes que son de Brazil.
+Generá una consulta en la base de datos que traiga la cuenta de todos los clientes que son de Brazil.
+Ingresá el número que te dio como resultado. */
+-- 5
+SELECT COUNT(pais), pais
+FROM clientes
+GROUP BY pais;
+
+
+/* Es época de balances y en Musimundos quieren saber cuánto es el dinero que la gente lleva gastado en la empresa.
+Hacé una consulta a la base de datos que sume el total de todas las facturas que emitió la empresa.
+Ingresá el número que obtuviste. */
+-- 2328.60
+SELECT SUM(total)
+FROM facturas;
+
+
+/* En el equipo de desarrollo están mudando de servidor a nuestra aplicación y quieren saber cuál es el peso de cada archivo de canciones para buscar un servidor adecuado con capacidad suficiente.
+Hacé una consulta a la base de datos para saber cuál es el archivo con menor peso en bytes.
+Ingresá el número que obtuviste. */
+-- 38747
+SELECT MIN(bytes)
+FROM canciones;
