@@ -123,4 +123,30 @@ SELECT CONCAT('La canción ', nombre, 'fue compuesta por ', compositor,'.')
 FROM canciones;
 
 
-/*  */
+/* Es la semana del rock a nivel mundial y nuestro gerente de Musimundos nos pide crear banners con canciones del género Rock. Debemos hacer una consulta a nuestra base de datos que nos devuelva los nombres de las canciones que tengan género rock.
+Seleccioná la cuarta canción que te devuelva la consulta. */
+-- Restless and Wild
+SELECT canciones.nombre AS Song, generos.nombre As Genre
+FROM canciones
+INNER JOIN generos
+ON canciones.id_genero = generos.id;
+
+
+/* En el salón Musimundos tenemos un cliente fanático de Deep Purple, este quiere comprar todos los álbumes que tengan como "artista" a Deep Purple. Debemos hacer una consulta a nuestra base de datos que nos traiga el título del álbum y el autor para saber si, lo que le estamos vendiendo, es correcto.
+Ingresá el título del álbum en la posición número 10. */
+-- Stormbringer
+SELECT albumes.titulo AS Album, artistas.nombre As Artist
+FROM albumes
+INNER JOIN artistas
+ON albumes.id_artista = artistas.id
+WHERE artistas.nombre = 'Deep Purple';
+
+
+/* En el departamento de desarrollo de Musimundos están creando la nueva aplicación móvil, en la cual vamos a poder escuchar música online de nuestros artistas favoritos. Para evitar posibles problemas de compatibilidad, los desarrolladores decidieron que solo van a subir canciones que tengan el tipo de medio "MPEG audio file". Debemos ayudar al equipo y obtener una lista en las cuales tengamos el nombre de las canciones que tengan ese tipo de medio.
+Seleccioná el nombre de la cuarta canción que obtuviste de la consulta. */
+-- Inject The Venom
+SELECT canciones.nombre, tipos_de_medio.nombre
+FROM canciones
+INNER JOIN tipos_de_medio
+ON canciones.id_tipo_de_medio = tipos_de_medio.id
+WHERE tipos_de_medio.nombre = 'MPEG audio file';
