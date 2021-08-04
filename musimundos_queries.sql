@@ -158,3 +158,12 @@ Ingresá el título que figura en la posición 4. */
 -- IT Manager
 SELECT DISTINCT titulo
 FROM empleados;
+
+
+/* Genera una consulta a la base Musimundos que cuente todas las canciones por genero y las agrupe por id_genero. Seleccioná el total del quinto registro. */
+-- 12
+SELECT COUNT(canciones.id_genero), generos.nombre
+FROM canciones
+INNER JOIN generos
+ON canciones.id_genero = generos.id
+GROUP BY id_genero;
