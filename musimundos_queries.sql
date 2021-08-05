@@ -192,3 +192,23 @@ Ingresá el número que obtuviste. */
 -- 38747
 SELECT MIN(bytes)
 FROM canciones;
+
+/* Se acerca el gerente de Marketing y nos comenta que buscan analizar las facturas que Ingresos está generando por cada país, PERO le interesa los países que hayan generado un total superior a 100.
+Ingresá el país correspondiente al segundo registro de la respuesta a la consulta.
+TIP: debes utilizar el GROUP BY, el SUM y HAVING para llegar a esta respuesta. Recordá ingresar el país con la primera letra en mayúscula y sin tildes. */
+-- Canada
+SELECT pais_de_facturacion, SUM(total)
+FROM facturas
+GROUP BY pais_de_facturacion
+HAVING SUM(total) > 100;
+
+
+/* Desde el departamento de Estrategia están evaluando en qué ciudad tienen más clientes para establecer unas nuevas oficinas.
+Es por esto que nos piden un informe donde mostremos, por ciudad, cuántos clientes hay, pero solo contando las ciudades que tengan 2 o más clientes (sabemos que suena poco, pero en estos momentos para la empresa es un montón).
+Ingresá la ciudad correspondiente al primer registro de la respuesta a tu consulta.
+TIP: debes utilizar el GROUP BY, el COUNT y HAVING para llegar a esta respuesta. Recordá ingresar la ciudad con la primera letra en mayúscula y sin tildes. */
+-- Berlin
+SELECT COUNT(ciudad), ciudad
+FROM clientes
+GROUP BY ciudad
+HAVING COUNT(ciudad) >= 2;
