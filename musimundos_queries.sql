@@ -212,3 +212,32 @@ SELECT COUNT(ciudad), ciudad
 FROM clientes
 GROUP BY ciudad
 HAVING COUNT(ciudad) >= 2;
+
+/* En musimundos estamos muy atentos a que nuestros usuarios encuentren una cantidad apropiada de canciones del estilo que quieran escuchar, es por eso que en esta oportunidad nos están solicitando una lista de cuantas canciones tenemos por género. Hacé una consulta a la base de datos que traiga el nombre del género y la cantidad de canciones que posee.
+ingresá el número que te dio como resultado las canciones de género Blues. */
+-- 81
+SELECT generos.nombre, COUNT(canciones.id_genero)
+FROM generos
+INNER JOIN canciones
+ON generos.id = canciones.id_genero
+GROUP BY generos.nombre;
+
+
+/* En el sitio web de Musimundos queremos mejorar nuestras vistas de productos colocando al pie de cada álbum el promedio de duración de cada álbum. Tomemos como ejemplo a la banda AC/DC y consulta a la base de datos el álbum 'Let There Be Rock' , lista sus canciones , su duración y saca un promedio de duracion de las mismas. 
+Insertá el número que obtuviste */
+-- 306657.375
+SELECT albumes.titulo, canciones.compositor, AVG(canciones.milisegundos)
+FROM canciones
+INNER JOIN albumes
+ON canciones.id_album = albumes.id
+GROUP BY albumes.titulo
+HAVING canciones.compositor = 'AC/DC';
+
+
+/* En el salón de Musimundos, estamos ofreciendo una promoción para los clientes regulares donde regalamos un 20% de descuento en su compra si alguna vez el cliente hizo una compra con un total de más de 12. El cliente número 48 acaba de entrar por la puerta y el vendedor quiere corroborar si el descuento se aplica.
+Hacé una consulta a la base de datos que nos traiga el total de la factura más cara que tenga el cliente número 48.
+Insertá el número que obtuviste. */
+-- 13.86
+SELECT MAX(total)
+FROM facturas
+WHERE id_cliente = 48;
